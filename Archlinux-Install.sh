@@ -27,8 +27,7 @@ mount /dev/sda2 /mnt/home
 pacstrap /mnt base base-devel
 
 genfstab -U /mnt >> /mnt/etc/fstab
-scp marcos@192.168.1.105:/home/marcos/Archlinux-Pos-install.sh .
-cp Archlinux-Install.sh /mnt
+wget -P /mnt http://bit.ly/arch-installer
 
 arch-chroot /mnt
 
