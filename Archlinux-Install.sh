@@ -1,7 +1,7 @@
 #wifi-menu
 usuario=marcos
 senha=12345
-host=kleper
+host=kleper1
 
 if [ $1 = pre-install ];then
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
