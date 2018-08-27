@@ -70,7 +70,7 @@ elif [ $1 = install ]; then
 
   echo $host > /etc/hostname
 
-  pacman -S grub --noconfirm
+  pacman -S grub os-prober --noconfirm
 
   grub-install /dev/sda
 
