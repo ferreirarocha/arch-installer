@@ -159,7 +159,7 @@ elif [ $1 = install ]; then
 
   su -c " yay -S file-roller                --noconfirm" marcos
   su -c " yay -S typora                     --noconfirm" marcos
-  su -c " yay -S ftilix                     --noconfirm" marcos
+  su -c " yay -S tilix                      --noconfirm" marcos
   su -c " yay -S inkscape                   --noconfirm" marcos
   su -c " yay -S gimp                       --noconfirm" marcos
   su -c " yay -S atom                       --noconfirm" marcos
