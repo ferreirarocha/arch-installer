@@ -124,6 +124,7 @@ elif [ $1 = install ]; then
   rsync \
   zsh \
   git \
+  wget \
   nautilus \
   screenfetch \
   xf86-video-intel \
@@ -164,7 +165,7 @@ elif [ $1 = install ]; then
   su -c " yay -S gimp                       --noconfirm" marcos
   su -c " yay -S atom                       --noconfirm" marcos
   su -c " yay -S mtnm                       --noconfirm" marcos
-  su -c " yay -S albert                     --noconfirm" marcos
+  su -c " yay -S albert  --ignore=virtualbox-host-dkms,virtualbox-sdk,virtualbox                   --noconfirm" marcos
   su -c " yay -S libreoffice-dev-bin        --noconfirm" marcos
   su -c " yay -S ksuperkey                  --noconfirm" marcos
   su -c " yay -S hunspell-pt-br             --noconfirm" marcos
