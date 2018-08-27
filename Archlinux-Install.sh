@@ -146,9 +146,8 @@ EOF
   sed  -i s/\#wheel/wheel/g sudoers ;sed  -i s/\#%wheel/%wheel/g sudoers
 
   mkdir -m 777 pkg
-  cd /mnt/pkg
+  cd /pkg
   sudo -u marcos -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
-
 
   su -c " yay -S file-roller                --noconfirm" marcos
   su -c " yay -S typora                     --noconfirm" marcos
