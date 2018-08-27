@@ -1,9 +1,10 @@
 #wifi-menu
+version=1.0
 usuario=marcos
 senha=12345
 host=kleper1
 
-if [ $1 = -i ];then
+function wifi(){
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
   Description='Internet via Wifi do Edivan'
   Interface=wlp3s1
@@ -13,16 +14,21 @@ cat << EOF > /etc/netctl/wlp3s1-Edivan2
   IP=dhcp
   Key=KLOpeNLibre10
 EOF
+  sudo  netctl enable wlp3s1-Edivan2  #statements
+}
 
+function rede-cabeada(){
 cat << EOF > /etc/netctl/ens3
   Description='Rede Cabeada do laboratorio'
   Interface=ens3
   Connection=ethernet
   IP=dhcp
 EOF
-
-  sudo  netctl start wlp3s1-Edivan2
   sudo  netctl enable ens3
+}
+
+if [ $1 = -i ];then
+
 
   cfdisk /dev/sda
 
@@ -41,14 +47,14 @@ EOF
   arch-chroot /mnt bash arch-installer  install
 
 elif [ $1 = install ]; then
-cat << EOF > /etc/netctl/ens3
-  Description='A basic dhcp ethernet connection'
-  Interface=ens3
-  Connection=ethernet
-  IP=dhcp
-EOF
 
-  sudo  netctl enable ens3
+    rede-cabeada
+
+      if [ $2 = wifi ];then
+
+        wifi
+
+      fi
 
   rm /etc/localtime
   ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -143,7 +149,7 @@ EOF
   gpasswd -a $usuario power
   gpasswd -a $usuario wheel
   #usermod -aG libvirt $usuario
-  sed  -i s/\#wheel/wheel/g sudoers ;sed  -i s/\#%wheel/%wheel/g sudoers
+  sed  -i s/\#wheel/wheel/g /etc/sudoers ;sed  -i s/\#%wheel/%wheel/g /etc/sudoers
 
   mkdir -m 777 pkg
   cd /pkg
