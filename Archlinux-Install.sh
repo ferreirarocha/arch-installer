@@ -1,4 +1,5 @@
 #wifi-menu
+version=1.0
 usuario=marcos
 senha=12345
 host=kleper1
