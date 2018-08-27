@@ -172,9 +172,10 @@ EOF
 
   xdg-user-dirs-update
   chsh -s /bin/zsh $usuario
-  scp marcos@192.168.1.105:/home/marcos/conf.zip /home/marcos/
-  unzip /home/marcos/conf.zip -d /etc/skel
-  chown marcos. -Rf /home/marcos/.*
+  wget http://download2266.mediafire.com/w13tfa66kagg/54ooo29q9s71ami/conf.zip
+  #scp marcos@192.168.1.105:/home/marcos/conf.zip /home/marcos/
+  unzip conf.zip -d /etc/skel
+  #chown marcos. -Rf /home/marcos/.*
 
 
   sudo sed -i /etc/lxdm/lxdm.conf \
