@@ -149,8 +149,6 @@ elif [ $1 = install ]; then
   gpasswd -a $usuario power
   gpasswd -a $usuario wheel
   #usermod -aG libvirt $usuario
-  sed  -i s/\#wheel/wheel/g /etc/sudoers ;sed  -i s/\#%wheel/%wheel/g /etc/sudoers
-  sed  -i s/\# wheel/wheel/g /etc/sudoers ;sed  -i s/\# %wheel/%wheel/g /etc/sudoers
   sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
 
   mkdir -m 777 pkg
@@ -164,7 +162,7 @@ elif [ $1 = install ]; then
   su -c " yay -S gimp                       --noconfirm" marcos
   su -c " yay -S atom                       --noconfirm" marcos
   su -c " yay -S mtnm                       --noconfirm" marcos
-  su -c " yay -S albert  --ignore=virtualbox-host-dkms,virtualbox-sdk,virtualbox                   --noconfirm" marcos
+  su -c " yay -S albert                     --noconfirm" marcos
   su -c " yay -S libreoffice-dev-bin        --noconfirm" marcos
   su -c " yay -S ksuperkey                  --noconfirm" marcos
   su -c " yay -S hunspell-pt-br             --noconfirm" marcos
