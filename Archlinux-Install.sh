@@ -124,7 +124,6 @@ elif [ $1 = install ]; then
   rsync \
   zsh \
   git \
-  wget \
   nautilus \
   screenfetch \
   xf86-video-intel \
@@ -173,6 +172,7 @@ elif [ $1 = install ]; then
   su -c " yay -S bind-tools                 --noconfirm" marcos
   su -c " yay -S exfat-utils                --noconfirm" marcos
   su -c " yay -S xdg-user-dir               --noconfirm" marcos
+  su -c " yay -S wget                       --noconfirm" marcos
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
