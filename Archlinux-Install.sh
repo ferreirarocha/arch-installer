@@ -136,7 +136,7 @@ elif [ $1 = install ]; then
   xdg-user-dirs \
   archlinux-keyring --noconfirm
 
-  useradd $usuario -m ; echo $usuario:$senha | chpasswd
+  useradd usertemp -m ; echo usertemp:$senha | chpasswd
   echo root:$senha | chpasswd
 
   gpasswd -a $usuario sys
@@ -155,22 +155,22 @@ elif [ $1 = install ]; then
   cd /pkg
   sudo -u marcos -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
 
-  su -c " yay -S file-roller                --noconfirm" marcos
-  su -c " yay -S typora                     --noconfirm" marcos
-  su -c " yay -S tilix                      --noconfirm" marcos
-  su -c " yay -S inkscape                   --noconfirm" marcos
-  su -c " yay -S gimp                       --noconfirm" marcos
-  su -c " yay -S atom                       --noconfirm" marcos
-  su -c " yay -S mtnm                       --noconfirm" marcos
-  su -c " yay -S albert                     --noconfirm" marcos
-  su -c " yay -S libreoffice-dev-bin        --noconfirm" marcos
-  su -c " yay -S ksuperkey                  --noconfirm" marcos
-  su -c " yay -S hunspell-pt-br             --noconfirm" marcos
-  su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" marcos
-  su -c " yay -S bind-tools                 --noconfirm" marcos
-  su -c " yay -S exfat-utils                --noconfirm" marcos
-  su -c " yay -S xdg-user-dir               --noconfirm" marcos
-  su -c " yay -S wget                       --noconfirm" marcos
+  su -c " yay -S file-roller                --noconfirm" usertemp
+  su -c " yay -S typora                     --noconfirm" usertemp
+  su -c " yay -S tilix                      --noconfirm" usertemp
+  su -c " yay -S inkscape                   --noconfirm" usertemp
+  su -c " yay -S gimp                       --noconfirm" usertemp
+  su -c " yay -S atom                       --noconfirm" usertemp
+  su -c " yay -S mtnm                       --noconfirm" usertemp
+  su -c " yay -S albert                     --noconfirm" usertemp
+  su -c " yay -S libreoffice-dev-bin        --noconfirm" usertemp
+  su -c " yay -S ksuperkey                  --noconfirm" usertemp
+  su -c " yay -S hunspell-pt-br             --noconfirm" usertemp
+  su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" usertemp
+  su -c " yay -S bind-tools                 --noconfirm" usertemp
+  su -c " yay -S exfat-utils                --noconfirm" usertemp
+  su -c " yay -S xdg-user-dir               --noconfirm" usertemp
+  su -c " yay -S wget                       --noconfirm" usertemp
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
@@ -188,7 +188,8 @@ elif [ $1 = install ]; then
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
 
-
+  useradd $usuario -m ; echo $usuario:$senha | chpasswd
+  userdel usertemp
   systemctl enable sshd
   sudo systemctl enable lxdm
 
