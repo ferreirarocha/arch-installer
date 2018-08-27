@@ -150,6 +150,7 @@ elif [ $1 = install ]; then
   gpasswd -a $usuario wheel
   #usermod -aG libvirt $usuario
   sed  -i s/\#wheel/wheel/g /etc/sudoers ;sed  -i s/\#%wheel/%wheel/g /etc/sudoers
+  sed  -i s/\# wheel/wheel/g /etc/sudoers ;sed  -i s/\# %wheel/%wheel/g /etc/sudoers
 
   mkdir -m 777 pkg
   cd /pkg
