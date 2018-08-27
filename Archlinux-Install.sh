@@ -4,6 +4,29 @@ usuario=marcos
 senha=12345
 host=kleper1
 
+function wifi(){
+cat << EOF > /etc/netctl/wlp3s1-Edivan2
+  Description='Internet via Wifi do Edivan'
+  Interface=wlp3s1
+  Connection=wireless
+  Security=wpa
+  ESSID=Edivan2
+  IP=dhcp
+  Key=KLOpeNLibre10
+EOF
+  sudo  netctl enable wlp3s1-Edivan2  #statements
+}
+
+function rede-cabeada(){
+cat << EOF > /etc/netctl/ens3
+  Description='Rede Cabeada do laboratorio'
+  Interface=ens3
+  Connection=ethernet
+  IP=dhcp
+EOF
+  sudo  netctl enable ens3
+}
+
 if [ $1 = -i ];then
 
 
@@ -25,29 +48,13 @@ if [ $1 = -i ];then
 
 elif [ $1 = install ]; then
 
-cat << EOF > /etc/netctl/ens3
-    Description='Rede Cabeada do laboratorio'
-    Interface=ens3
-    Connection=ethernet
-    IP=dhcp
-EOF
+    rede-cabeada
 
-    if [ $2 = wifi ];then
-cat << EOF > /etc/netctl/wlp3s1-Edivan2
-        Description='Internet via Wifi do Edivan'
-        Interface=wlp3s1
-        Connection=wireless
-        Security=wpa
-        ESSID=Edivan2
-        IP=dhcp
-        Key=KLOpeNLibre10
-EOF
+      if [ $2 = wifi ];then
 
-        sudo  netctl enable wlp3s1-Edivan2
+        wifi
 
-    fi
-
-    sudo  netctl enable ens3
+      fi
 
   rm /etc/localtime
   ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
