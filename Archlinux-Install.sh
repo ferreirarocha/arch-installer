@@ -5,24 +5,26 @@ senha=12345
 host=kleper1
 
 if [ $1 = -i ];then
-cat << EOF > /etc/netctl/wlp3s1-Edivan2
-  Description='Internet via Wifi do Edivan'
-  Interface=wlp3s1
-  Connection=wireless
-  Security=wpa
-  ESSID=Edivan2
-  IP=dhcp
-  Key=KLOpeNLibre10
-EOF
-
 cat << EOF > /etc/netctl/ens3
   Description='Rede Cabeada do laboratorio'
   Interface=ens3
   Connection=ethernet
   IP=dhcp
 EOF
+  if [ $2 = wifi ];then
+    cat << EOF > /etc/netctl/wlp3s1-Edivan2
+      Description='Internet via Wifi do Edivan'
+      Interface=wlp3s1
+      Connection=wireless
+      Security=wpa
+      ESSID=Edivan2
+      IP=dhcp
+      Key=KLOpeNLibre10
+EOF
+    sudo  netctl enable wlp3s1-Edivan2
 
-  sudo  netctl start wlp3s1-Edivan2
+  fi
+
   sudo  netctl enable ens3
 
   cfdisk /dev/sda
