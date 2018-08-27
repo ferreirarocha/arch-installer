@@ -5,7 +5,7 @@ host=kleper
 
 if [ $1 = pre-install ];then
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
-  Description='Automatically generated profile by wifi-menu'
+  Description='Internet via Wifi do Edivan'
   Interface=wlp3s1
   Connection=wireless
   Security=wpa
@@ -14,9 +14,15 @@ cat << EOF > /etc/netctl/wlp3s1-Edivan2
   Key=KLOpeNLibre10
 EOF
 
-  cd /etc/netctl
-  sudo  netctl start wlp3s1-Edivan2
+cat << EOF > /etc/netctl/ens3
+  Description='Rede Cabeada do laboratorio'
+  Interface=ens3
+  Connection=ethernet
+  IP=dhcp
+EOF
 
+  sudo  netctl start wlp3s1-Edivan2
+  sudo  netctl enable ens3
 
   cfdisk /dev/sda
 
@@ -32,7 +38,7 @@ EOF
   genfstab -U /mnt >> /mnt/etc/fstab
   wget -P /mnt http://bit.ly/arch-installer
 
-  arch-chroot /mnt
+  arch-chroot /mnt bash arch-installer  install
 
 elif [ $1 = install ]; then
 cat << EOF > /etc/netctl/ens3
@@ -42,8 +48,7 @@ cat << EOF > /etc/netctl/ens3
   IP=dhcp
 EOF
 
-  cd /etc/netctl
-  sudo  netctl start ens3
+  sudo  netctl enable ens3
 
   rm /etc/localtime
   ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -137,27 +142,28 @@ EOF
   gpasswd -a $usuario power
   gpasswd -a $usuario wheel
   #usermod -aG libvirt $usuario
-
+  sed  -i s/\#wheel/wheel/g sudoers ;sed  -i s/\#%wheel/%wheel/g sudoers
 
   mkdir -m 777 pkg
   cd pkg
   sudo -u marcos -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
 
-  su -c " yay -S file-roller \
-  libreoffice-dev-bin \ksuperkey \
-  typora \
-  tilix \
-  inkscape \
-  gimp \
-  atom \
-  hunspell-pt-br \
-  mtnm \
-  xfce4-dockbarx-plugin-git \
-  bind-tools \
-  exfat-utils \
-  xdg-user-dir \
-  exfat-fuse \
-  albert --noconfirm " marcos
+
+  su -c " yay -S file-roller                --noconfirm" marcos
+  su -c " yay -S typora                     --noconfirm" marcos
+  su -c " yay -S ftilix                     --noconfirm" marcos
+  su -c " yay -S inkscape                   --noconfirm" marcos
+  su -c " yay -S gimp                       --noconfirm" marcos
+  su -c " yay -S atom                       --noconfirm" marcos
+  su -c " yay -S mtnm                       --noconfirm" marcos
+  su -c " yay -S albert                     --noconfirm" marcos
+  su -c " yay -S libreoffice-dev-bin        --noconfirm" marcos
+  su -c " yay -S ksuperkey                  --noconfirm" marcos
+  su -c " yay -S hunspell-pt-br             --noconfirm" marcos
+  su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" marcos
+  su -c " yay -S bind-tools                 --noconfirm" marcos
+  su -c " yay -S exfat-utils                --noconfirm" marcos
+  su -c " yay -S xdg-user-dir               --noconfirm" marcos
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
@@ -167,7 +173,7 @@ EOF
   xdg-user-dirs-update
   chsh -s /bin/zsh $usuario
   scp marcos@192.168.1.105:/home/marcos/conf.zip /home/marcos/
-  unzip /home/marcos/conf.zip -d /home/marcos/
+  unzip /home/marcos/conf.zip -d /etc/skel
   chown marcos. -Rf /home/marcos/.*
 
 
