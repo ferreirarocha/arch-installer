@@ -3,7 +3,7 @@ usuario=marcos
 senha=12345
 host=kleper1
 
-if [ $1 = pre-install ];then
+if [ $1 = -i ];then
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
   Description='Internet via Wifi do Edivan'
   Interface=wlp3s1
@@ -117,6 +117,7 @@ EOF
   unrar \
   rsync \
   zsh \
+  git \
   nautilus \
   screenfetch \
   xf86-video-intel \
