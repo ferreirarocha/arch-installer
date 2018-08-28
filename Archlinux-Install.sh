@@ -41,7 +41,7 @@ if [ $1 = -i ];then
   pacstrap /mnt base base-devel
 
   genfstab -U /mnt >> /mnt/etc/fstab
-  wget -Pc /mnt http://bit.ly/arch-installer
+  wget -c -P /mnt http://bit.ly/arch-installer
 
   arch-chroot /mnt bash arch-installer  install
 
