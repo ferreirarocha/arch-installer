@@ -177,8 +177,6 @@ elif [ $1 = install ]; then
   virtualbox  --noconfirm
 
 
-  xdg-user-dirs-update
-  chsh -s /bin/zsh $usuario
   wget http://download2266.mediafire.com/w13tfa66kagg/54ooo29q9s71ami/conf.zip
   #scp marcos@192.168.1.105:/home/marcos/conf.zip /home/marcos/
   unzip conf.zip -d /etc/skel
@@ -189,6 +187,8 @@ elif [ $1 = install ]; then
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
 
   useradd $usuario -m ; echo $usuario:$senha | chpasswd
+  xdg-user-dirs-update
+  chsh -s /bin/zsh $usuario
   userdel usertemp
   systemctl enable sshd
   sudo systemctl enable lxdm
