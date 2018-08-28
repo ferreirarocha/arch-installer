@@ -179,8 +179,8 @@ elif [ $1 = install ]; then
   virtualbox-sdk \
   virtualbox  --noconfirm
 
-  wget -c http://download1339.mediafire.com/w05ug3bz85xg/qcbzocqq1c22nbc/conf.zip
-
+  wget -c http://download2267.mediafire.com/z72mlhl7essg/qcbzocqq1c22nbc/conf.zip
+  
   unzip -o /pkg/conf.zip -d /home/marcos/
 
   sudo sed -i /etc/lxdm/lxdm.conf \
