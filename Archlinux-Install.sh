@@ -29,7 +29,6 @@ EOF
 
 if [ $1 = -i ];then
 
-
   cfdisk /dev/sda
 
   mkfs.ext4 /dev/sda1
@@ -75,7 +74,6 @@ elif [ $1 = install ]; then
   grub-install /dev/sda
 
   grub-mkconfig -o /boot/grub/grub.cfg
-
 
   curl 'https://www.archlinux.org/mirrorlist/?country=BR&protocol=http&protocol=https&ip_version=4' > mirrorlist ; sed s/#Server/Server/g  mirrorlist > /etc/pacman.d/mirrorlist
 
@@ -138,8 +136,6 @@ elif [ $1 = install ]; then
   wget \
   archlinux-keyring --noconfirm
 
-
-
   useradd temporario -m ; echo temporario:$senha | chpasswd
   echo root:$senha | chpasswd
 
@@ -179,18 +175,12 @@ elif [ $1 = install ]; then
   su -c " yay -S xdg-user-dir               --noconfirm" temporario
   su -c " yay -S telegram-desktop-bin       --noconfirm" temporario
 
-
-
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
   virtualbox  --noconfirm
 
-
-  wget -P / http://download2266.mediafire.com/w13tfa66kagg/54ooo29q9s71ami/conf.zip
-  #scp marcos@192.168.1.105:/home/marcos/conf.zip /home/marcos/
-  unzip /conf.zip -d /etc/skel
-  #chown marcos. -Rf /home/marcos/.*
-
+  wget -P  http://download1339.mediafire.com/w05ug3bz85xg/qcbzocqq1c22nbc/conf.zip
+  unzip conf.zip -d /etc/skel
 
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
