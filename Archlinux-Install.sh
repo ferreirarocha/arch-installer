@@ -156,7 +156,7 @@ elif [ $1 = install ]; then
   #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
   rm /etc/sudoers*
   wget -P /etc/ https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
-
+  rm /home/usertemp/.config/yay/config.json
   mkdir -m 777 pkg
   cd /pkg
   sudo -u usertemp -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
