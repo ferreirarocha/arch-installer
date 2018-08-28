@@ -173,6 +173,9 @@ elif [ $1 = install ]; then
   su -c " yay -S exfat-utils                --noconfirm" usertemp
   su -c " yay -S xdg-user-dir               --noconfirm" usertemp
   su -c " yay -S wget                       --noconfirm" usertemp
+  su -c " yay -S telegram-desktop-bin       --noconfirm" usertemp
+
+
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
