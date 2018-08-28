@@ -180,7 +180,8 @@ elif [ $1 = install ]; then
   virtualbox  --noconfirm
 
   wget -c http://download1339.mediafire.com/w05ug3bz85xg/qcbzocqq1c22nbc/conf.zip
-  unzip -o conf.zip -d /etc/skel/
+
+  unzip -o conf.zip -d /home/marcos/
 
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
