@@ -148,6 +148,8 @@ elif [ $1 = install ]; then
   gpasswd -a $usuario scanner
   gpasswd -a $usuario power
   gpasswd -a $usuario wheel
+  gpasswd -a usertemp wheel
+
   #usermod -aG libvirt $usuario
   sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
 
