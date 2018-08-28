@@ -83,6 +83,7 @@ elif [ $1 = install ]; then
   wget -P /etc/ https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/pacman.conf
 
   pacman -Syu
+  pacman -Ss
 
   pacman -S xorg \
   xorg-server \
@@ -134,6 +135,7 @@ elif [ $1 = install ]; then
   pulseaudio-alsa \
   pulseaudio \
   xdg-user-dirs \
+  wget \
   archlinux-keyring --noconfirm
 
   useradd usertemp -m ; echo usertemp:$senha | chpasswd
@@ -173,7 +175,6 @@ elif [ $1 = install ]; then
   su -c " yay -S bind-tools                 --noconfirm" usertemp
   su -c " yay -S exfat-utils                --noconfirm" usertemp
   su -c " yay -S xdg-user-dir               --noconfirm" usertemp
-  su -c " yay -S wget                       --noconfirm" usertemp
   su -c " yay -S telegram-desktop-bin       --noconfirm" usertemp
 
 
