@@ -48,7 +48,7 @@ if [ $1 = -i ];then
 
 elif [ $1 = install ]; then
 
-    rede-cabeada
+  rede-cabeada
 
       if [ $2 = wifi ];then
 
