@@ -198,3 +198,6 @@ else
 	echo "dd"
 
 fi
+umount  /mnt/home
+umount /mnt
+reboot
