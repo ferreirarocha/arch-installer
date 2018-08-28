@@ -155,7 +155,7 @@ elif [ $1 = install ]; then
 
   mkdir -m 777 pkg
   cd /pkg
-  sudo -u marcos -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
+  sudo -u usertemp -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
 
   su -c " yay -S file-roller                --noconfirm" usertemp
   su -c " yay -S typora                     --noconfirm" usertemp
