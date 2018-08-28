@@ -3,7 +3,7 @@ version=1.0
 usuario=marcos
 senha=12345
 host=kleper1
-temporario=`date +%d%H%M`
+temporario=temporario
 
 function wifi(){
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
