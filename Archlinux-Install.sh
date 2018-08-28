@@ -138,6 +138,8 @@ elif [ $1 = install ]; then
   wget \
   archlinux-keyring --noconfirm
 
+
+
   useradd usertemp -m ; echo usertemp:$senha | chpasswd
   echo root:$senha | chpasswd
 
@@ -154,8 +156,7 @@ elif [ $1 = install ]; then
 
   #usermod -aG libvirt $usuario
   #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
-  rm /etc/sudoers*
-  wget -P /etc/ https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
+  wget -O  /etc/sudoers https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
   rm /home/usertemp/.config/yay/config.json
   mkdir -m 777 pkg
   cd /pkg
