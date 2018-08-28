@@ -184,6 +184,7 @@ elif [ $1 = install ]; then
 
   unzip -o /pkg/conf.zip -d /home/$usuario/
   chown $usuario. -Rvf /home/$usuario/*
+  chown $usuario. -Rvf /home/$usuario/.*
 
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
