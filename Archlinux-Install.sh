@@ -140,7 +140,7 @@ elif [ $1 = install ]; then
 
 
 
-  useradd usertemp -m ; echo usertemp:$senha | chpasswd
+  useradd temporario -m ; echo temporario:$senha | chpasswd
   echo root:$senha | chpasswd
 
   gpasswd -a $usuario sys
@@ -152,32 +152,32 @@ elif [ $1 = install ]; then
   gpasswd -a $usuario scanner
   gpasswd -a $usuario power
   gpasswd -a $usuario wheel
-  gpasswd -a usertemp wheel
+  gpasswd -a temporario wheel
 
   #usermod -aG libvirt $usuario
   #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
   wget -O  /etc/sudoers https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
-  rm /home/usertemp/.config/yay/config.json
+  rm /home/temporario/.config/yay/config.json
   mkdir -m 777 pkg
   cd /pkg
-  sudo -u usertemp -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
+  sudo -u temporario -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
 
-  su -c " yay -S file-roller                --noconfirm" usertemp
-  su -c " yay -S typora                     --noconfirm" usertemp
-  su -c " yay -S tilix                      --noconfirm" usertemp
-  su -c " yay -S inkscape                   --noconfirm" usertemp
-  su -c " yay -S gimp                       --noconfirm" usertemp
-  su -c " yay -S atom                       --noconfirm" usertemp
-  su -c " yay -S mtnm                       --noconfirm" usertemp
-  su -c " yay -S albert                     --noconfirm" usertemp
-  su -c " yay -S libreoffice-dev-bin        --noconfirm" usertemp
-  su -c " yay -S ksuperkey                  --noconfirm" usertemp
-  su -c " yay -S hunspell-pt-br             --noconfirm" usertemp
-  su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" usertemp
-  su -c " yay -S bind-tools                 --noconfirm" usertemp
-  su -c " yay -S exfat-utils                --noconfirm" usertemp
-  su -c " yay -S xdg-user-dir               --noconfirm" usertemp
-  su -c " yay -S telegram-desktop-bin       --noconfirm" usertemp
+  su -c " yay -S file-roller                --noconfirm" temporario
+  su -c " yay -S typora                     --noconfirm" temporario
+  su -c " yay -S tilix                      --noconfirm" temporario
+  su -c " yay -S inkscape                   --noconfirm" temporario
+  su -c " yay -S gimp                       --noconfirm" temporario
+  su -c " yay -S atom                       --noconfirm" temporario
+  su -c " yay -S mtnm                       --noconfirm" temporario
+  su -c " yay -S albert                     --noconfirm" temporario
+  su -c " yay -S libreoffice-dev-bin        --noconfirm" temporario
+  su -c " yay -S ksuperkey                  --noconfirm" temporario
+  su -c " yay -S hunspell-pt-br             --noconfirm" temporario
+  su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" temporario
+  su -c " yay -S bind-tools                 --noconfirm" temporario
+  su -c " yay -S exfat-utils                --noconfirm" temporario
+  su -c " yay -S xdg-user-dir               --noconfirm" temporario
+  su -c " yay -S telegram-desktop-bin       --noconfirm" temporario
 
 
 
@@ -198,7 +198,7 @@ elif [ $1 = install ]; then
   useradd $usuario -m ; echo $usuario:$senha | chpasswd
   xdg-user-dirs-update
   chsh -s /bin/zsh $usuario
-  userdel usertemp
+  userdel temporario
   systemctl enable sshd
   sudo systemctl enable lxdm
 
