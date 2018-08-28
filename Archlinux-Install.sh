@@ -154,7 +154,7 @@ elif [ $1 = install ]; then
 
   #usermod -aG libvirt $usuario
   #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
-  rm /etc/sudoers 
+  rm /etc/sudoers*
   wget -P /etc/ https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
 
   mkdir -m 777 pkg
