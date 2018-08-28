@@ -183,7 +183,7 @@ elif [ $1 = install ]; then
   wget -c http://download2267.mediafire.com/z72mlhl7essg/qcbzocqq1c22nbc/conf.zip
 
   unzip -o /pkg/conf.zip -d /home/$usuario/
-  chown marcos. -Rvf /home/$usuario/*
+  chown $usuario. -Rvf /home/$usuario/*
 
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
