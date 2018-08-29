@@ -176,7 +176,7 @@ elif [ $1 = install ]; then
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
   virtualbox  --noconfirm
-
+c
   wget -c http://bit.ly/arch-conf-zip
   unzip -o /pkg/arch-conf-zip -d /home/$usuario/
 
