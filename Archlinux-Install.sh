@@ -130,6 +130,11 @@ elif [ $1 = install ]; then
   useradd $temporario -m ; echo $temporario:$senha | chpasswd
   echo root:$senha | chpasswd
 
+
+
+  #usermod -aG libvirt $usuario
+  #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
+  wget -O  /etc/sudoers https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
   gpasswd -a $usuario     sys
   gpasswd -a $usuario     lp
   gpasswd -a $usuario     network
@@ -140,10 +145,7 @@ elif [ $1 = install ]; then
   gpasswd -a $usuario     power
   gpasswd -a $usuario     wheel
   gpasswd -a $temporario  wheel
-
-  #usermod -aG libvirt $usuario
-  #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
-  wget -O  /etc/sudoers https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
+  
   rm /home/$temporario/.config/yay/config.json
   mkdir -m 777 pkg
   cd /pkg
