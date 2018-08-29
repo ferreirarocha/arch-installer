@@ -175,6 +175,7 @@ elif [ $1 = install ]; then
   su -c " yay -S exfat-utils                --noconfirm" $temporario
   su -c " yay -S xdg-user-dir               --noconfirm" $temporario
   su -c " yay -S telegram-desktop-bin       --noconfirm" $temporario
+  su -c " yay -S megasync-git               --noconfirm" $temporario
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
