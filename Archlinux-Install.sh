@@ -140,16 +140,16 @@ elif [ $1 = install ]; then
   useradd $temporario -m ; echo $temporario:$senha | chpasswd
   echo root:$senha | chpasswd
 
-  gpasswd -a $usuario sys
-  gpasswd -a $usuario lp
-  gpasswd -a $usuario network
-  gpasswd -a $usuario video
-  gpasswd -a $usuario optical
-  gpasswd -a $usuario storage
-  gpasswd -a $usuario scanner
-  gpasswd -a $usuario power
-  gpasswd -a $usuario wheel
-  gpasswd -a $temporario wheel
+  gpasswd -a $usuario     sys
+  gpasswd -a $usuario     lp
+  gpasswd -a $usuario     network
+  gpasswd -a $usuario     optical
+  gpasswd -a $usuario     video
+  gpasswd -a $usuario     storage
+  gpasswd -a $usuario     scanner
+  gpasswd -a $usuario     power
+  gpasswd -a $usuario     wheel
+  gpasswd -a $temporario  wheel
 
   #usermod -aG libvirt $usuario
   #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
