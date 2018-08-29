@@ -166,6 +166,8 @@ elif [ $1 = install ]; then
   su -c " yay -S tilix                      --noconfirm" $temporario
   su -c " yay -S typora                     --noconfirm" $temporario
   su -c " yay -S dropbox                    --noconfirm" $temporario
+  su -c " yay -S google-chrome              --noconfirm" $temporario
+  su -c " yay -S firefox                    --noconfirm" $temporario
   su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
 
 
