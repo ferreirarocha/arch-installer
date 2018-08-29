@@ -195,6 +195,6 @@ else
 
 fi
 
-#umount  /mnt/home
-#umount /mnt
+umount  /mnt/home
+umount /mnt
 #reboot
