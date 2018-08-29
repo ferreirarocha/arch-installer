@@ -86,11 +86,7 @@ elif [ $1 = install ]; then
 
   pacman -S xorg \
   a52dec \
-  alsa-{utils,plugins,plugins,firmware} pulseaudio pulseaudio-{equalizer,alsa} \
-  alsa-firmware \
-  alsa-plugins \
-  alsa-utils \
-  alsa-utils \
+  alsa-{utils,plugins,firmware} pulseaudio pulseaudio-{equalizer,alsa} \
   archlinux-keyring \
   faac \
   faad2 \
@@ -110,18 +106,12 @@ elif [ $1 = install ]; then
   nautilus \
   openssh \
   p7zip \
-  p7zip \
   pavucontrol \
-  pulseaudio \
-  pulseaudio \
-  pulseaudio-alsa \
-  rsync \
   rsync \
   screenfetch \
   tar \
   ttf-dejavu \
   ttf-droid \
-  unrar \
   unrar \
   unzip \
   vlc \
@@ -175,16 +165,17 @@ elif [ $1 = install ]; then
   su -c " yay -S telegram-desktop-bin       --noconfirm" $temporario
   su -c " yay -S tilix                      --noconfirm" $temporario
   su -c " yay -S typora                     --noconfirm" $temporario
-  su -c " yay -S xdg-user-dir               --noconfirm" $temporario
+  su -c " yay -S dropbox                    --noconfirm" $temporario
   su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
+
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
   virtualbox  --noconfirm
 
-  wget -c http://download2267.mediafire.com/z72mlhl7essg/qcbzocqq1c22nbc/conf.zip
+  wget -c http://bit.ly/arch-conf-zip
+  unzip -o /pkg/arch-conf-zip -d /home/$usuario/
 
-  unzip -o /pkg/conf.zip -d /home/$usuario/
   chown $usuario. -Rvf /home/$usuario/*
   chown $usuario. -Rvf /home/$usuario/.*
 
