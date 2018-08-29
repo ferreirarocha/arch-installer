@@ -50,11 +50,11 @@ elif [ $1 = install ]; then
 
   rede-cabeada
 
-      if [ $2 = wifi ];then
+    if [ $2 = wifi ];then
 
         wifi
 
-      fi
+    fi
 
   rm /etc/localtime
   ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -170,7 +170,7 @@ elif [ $1 = install ]; then
   su -c " yay -S inkscape                   --noconfirm" $temporario
   su -c " yay -S ksuperkey                  --noconfirm" $temporario
   su -c " yay -S libreoffice-dev-bin        --noconfirm" $temporario
-  su -c " yay -S megasync-git               --noconfirm" $temporario
+  su -c " yay -S megasync                   --noconfirm" $temporario
   su -c " yay -S mtnm                       --noconfirm" $temporario
   su -c " yay -S telegram-desktop-bin       --noconfirm" $temporario
   su -c " yay -S tilix                      --noconfirm" $temporario
