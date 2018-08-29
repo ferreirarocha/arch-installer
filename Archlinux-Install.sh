@@ -85,22 +85,18 @@ elif [ $1 = install ]; then
   pacman -Ss
 
   pacman -S xorg \
-  xorg-server \
-  xorg-xinit \
-  xfce4 \
-  xfce4-goodies \
-  go \
-  lxdm \
-  openssh \
-  alsa-utils \
-  pulseaudio \
-  ttf-dejavu \
-  ttf-droid \
-  alsa-{utils,plugins,plugins,firmware} pulseaudio pulseaudio-{equalizer,alsa} \
   a52dec \
+  alsa-{utils,plugins,plugins,firmware} pulseaudio pulseaudio-{equalizer,alsa} \
+  alsa-firmware \
+  alsa-plugins \
+  alsa-utils \
+  alsa-utils \
+  archlinux-keyring \
   faac \
   faad2 \
   flac \
+  git \
+  go \
   jasper \
   lame \
   libdca \
@@ -110,32 +106,36 @@ elif [ $1 = install ]; then
   libtheora \
   libvorbis \
   libxv \
-  wavpack \
-  x264 \
-  xvidcore \
-  vlc \
-  p7zip \
-  unrar \
-  tar \
-  unzip \
-  rsync \
-  p7zip \
-  unrar \
-  rsync \
-  zsh \
-  git \
+  lxdm \
   nautilus \
-  screenfetch \
-  xf86-video-intel \
+  openssh \
+  p7zip \
+  p7zip \
   pavucontrol \
-  alsa-firmware \
-  alsa-utils \
-  alsa-plugins \
-  pulseaudio-alsa \
   pulseaudio \
-  xdg-user-dirs \
+  pulseaudio \
+  pulseaudio-alsa \
+  rsync \
+  rsync \
+  screenfetch \
+  tar \
+  ttf-dejavu \
+  ttf-droid \
+  unrar \
+  unrar \
+  unzip \
+  vlc \
+  wavpack \
   wget \
-  archlinux-keyring --noconfirm
+  x264 \
+  xdg-user-dirs \
+  xf86-video-intel \
+  xfce4 \
+  xfce4-goodies \
+  xorg-server \
+  xorg-xinit \
+  xvidcore \
+  zsh       --noconfirm
 
   useradd $temporario -m ; echo $temporario:$senha | chpasswd
   echo root:$senha | chpasswd
@@ -159,23 +159,24 @@ elif [ $1 = install ]; then
   cd /pkg
   sudo -u $temporario -H sh -c "git clone https://aur.archlinux.org/yay.git; cd yay/ ; makepkg -si --noconfirm"
 
-  su -c " yay -S file-roller                --noconfirm" $temporario
-  su -c " yay -S typora                     --noconfirm" $temporario
-  su -c " yay -S tilix                      --noconfirm" $temporario
-  su -c " yay -S inkscape                   --noconfirm" $temporario
-  su -c " yay -S gimp                       --noconfirm" $temporario
-  su -c " yay -S atom                       --noconfirm" $temporario
-  su -c " yay -S mtnm                       --noconfirm" $temporario
   su -c " yay -S albert                     --noconfirm" $temporario
-  su -c " yay -S libreoffice-dev-bin        --noconfirm" $temporario
-  su -c " yay -S ksuperkey                  --noconfirm" $temporario
-  su -c " yay -S hunspell-pt-br             --noconfirm" $temporario
-  su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
+  su -c " yay -S atom                       --noconfirm" $temporario
   su -c " yay -S bind-tools                 --noconfirm" $temporario
+  su -c " yay -S chrony                     --noconfirm" $temporario
   su -c " yay -S exfat-utils                --noconfirm" $temporario
-  su -c " yay -S xdg-user-dir               --noconfirm" $temporario
-  su -c " yay -S telegram-desktop-bin       --noconfirm" $temporario
+  su -c " yay -S file-roller                --noconfirm" $temporario
+  su -c " yay -S gimp                       --noconfirm" $temporario
+  su -c " yay -S hunspell-pt-br             --noconfirm" $temporario
+  su -c " yay -S inkscape                   --noconfirm" $temporario
+  su -c " yay -S ksuperkey                  --noconfirm" $temporario
+  su -c " yay -S libreoffice-dev-bin        --noconfirm" $temporario
   su -c " yay -S megasync-git               --noconfirm" $temporario
+  su -c " yay -S mtnm                       --noconfirm" $temporario
+  su -c " yay -S telegram-desktop-bin       --noconfirm" $temporario
+  su -c " yay -S tilix                      --noconfirm" $temporario
+  su -c " yay -S typora                     --noconfirm" $temporario
+  su -c " yay -S xdg-user-dir               --noconfirm" $temporario
+  su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
