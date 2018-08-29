@@ -171,17 +171,20 @@ elif [ $1 = install ]; then
   su -c " yay -S firefox                    --noconfirm" $temporario
   su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
 
+  git clone  https://github.com/ferreirarocha/myconf.git /home/$usuario/
   useradd $usuario -m ; echo $usuario:$senha | chpasswd
+
+  chown $usuario. -Rvf /home/$usuario/*
+  chown $usuario. -Rvf /home/$usuario/.*
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
   virtualbox  --noconfirm
-c
-  wget -c http://bit.ly/arch-conf-zip
-  unzip -o /pkg/arch-conf-zip -d /home/$usuario/
+#c
+#  wget -c http://bit.ly/arch-conf-zip
 
-  chown $usuario. -Rvf /home/$usuario/*
-  chown $usuario. -Rvf /home/$usuario/.*
+  #unzip -o /pkg/arch-conf-zip -d /home/$usuario/
+
 
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
