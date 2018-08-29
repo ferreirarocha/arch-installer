@@ -133,7 +133,6 @@ elif [ $1 = install ]; then
 
 
   #usermod -aG libvirt $usuario
-  #sed  -i s/\#\ wheel/wheel/g /etc/sudoers ;sed  -i s/\#\ %wheel/%wheel/g /etc/sudoers
   wget -O  /etc/sudoers https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/sudoers
   gpasswd -a $usuario     sys
   gpasswd -a $usuario     lp
@@ -145,7 +144,7 @@ elif [ $1 = install ]; then
   gpasswd -a $usuario     power
   gpasswd -a $usuario     wheel
   gpasswd -a $temporario  wheel
-  
+
   rm /home/$temporario/.config/yay/config.json
   mkdir -m 777 pkg
   cd /pkg
@@ -172,6 +171,7 @@ elif [ $1 = install ]; then
   su -c " yay -S firefox                    --noconfirm" $temporario
   su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
 
+  useradd $usuario -m ; echo $usuario:$senha | chpasswd
 
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
@@ -186,10 +186,11 @@ elif [ $1 = install ]; then
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
 
-  useradd $usuario -m ; echo $usuario:$senha | chpasswd
   xdg-user-dirs-update
   chsh -s /bin/zsh $usuario
   userdel $temporario
+  sed  -i s/%wheel/\#%wheel/g /etc/sudoers
+
   systemctl enable sshd
   sudo systemctl enable lxdm
 
