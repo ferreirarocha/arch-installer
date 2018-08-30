@@ -4,6 +4,8 @@ usuario=marcos
 senha=12345
 host=kleper1
 temporario=temporario
+sistema=/dev/sda1
+home=/dev/sda2
 
 function wifi(){
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
@@ -32,12 +34,12 @@ if [ $1 = -i ];then
 
   cfdisk /dev/sda
 
-  mkfs.ext4 /dev/sda1
-  mkfs.ext4 /dev/sda2
+  mkfs.ext4 $sistema
+  mkfs.ext4 $home
 
-  mount /dev/sda1 /mnt
+  mount $sistema /mnt
   mkdir /mnt/home
-  mount /dev/sda2 /mnt/home
+  mount $home /mnt/home
 
   pacstrap /mnt base base-devel
 
