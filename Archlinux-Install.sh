@@ -177,7 +177,6 @@ elif [ $1 = install ]; then
   git clone  https://github.com/ferreirarocha/myconf.git /etc/skel/
   rm /etc/skel/LICENSE
   rm /etc/skel/README.md
-  #git clone  https://github.com/ferreirarocha/myconf.git /home/$usuario/
   useradd $usuario -m ; echo $usuario:$senha | chpasswd
 
   chown $usuario. -Rvf /home/$usuario/*
@@ -186,11 +185,6 @@ elif [ $1 = install ]; then
   pacman -R virtualbox-host-dkms \
   virtualbox-sdk \
   virtualbox  --noconfirm
-#c
-#  wget -c http://bit.ly/arch-conf-zip
-
-  #unzip -o /pkg/arch-conf-zip -d /home/$usuario/
-
 
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
