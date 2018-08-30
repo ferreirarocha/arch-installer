@@ -196,6 +196,7 @@ elif [ $1 = install ]; then
 
   systemctl enable sshd
   sudo systemctl enable lxdm
+  exit
 
 else
 
@@ -205,4 +206,4 @@ fi
 
 umount  /mnt/home
 umount /mnt
-#reboot
+echo -e "Arch Linux instalado reinicie o sistema"
