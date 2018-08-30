@@ -191,7 +191,8 @@ elif [ $1 = install ]; then
 
   xdg-user-dirs-update
   chsh -s /bin/zsh $usuario
-  userdel $temporario
+  userdel -r -f $temporario
+
   sed  -i s/%wheel/\#%wheel/g /etc/sudoers
 
   systemctl enable sshd
