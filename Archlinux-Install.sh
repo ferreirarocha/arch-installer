@@ -181,7 +181,10 @@ elif [ $1 = install ]; then
   git clone  https://github.com/ferreirarocha/myconf.git /etc/skel/
   rm /etc/skel/LICENSE
   rm /etc/skel/README.md
+  rm /etc/skel/.git
+
   useradd $usuario -m ; echo $usuario:$senha | chpasswd
+  sed -i s/usuario/$usuario/g /home/$usuario/.zshrc
 
   chown $usuario. -Rvf /home/$usuario/*
   chown $usuario. -Rvf /home/$usuario/.*
