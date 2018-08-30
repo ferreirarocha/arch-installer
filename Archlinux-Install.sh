@@ -171,7 +171,9 @@ elif [ $1 = install ]; then
   su -c " yay -S firefox                    --noconfirm" $temporario
   su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
 
-  git clone  https://github.com/ferreirarocha/myconf.git /home/$usuario/
+  rm /etc/skel/.*
+  git clone  https://github.com/ferreirarocha/myconf.git /etc/skel/
+  #git clone  https://github.com/ferreirarocha/myconf.git /home/$usuario/
   useradd $usuario -m ; echo $usuario:$senha | chpasswd
 
   chown $usuario. -Rvf /home/$usuario/*
