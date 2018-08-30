@@ -175,6 +175,8 @@ elif [ $1 = install ]; then
 
   rm /etc/skel/.*
   git clone  https://github.com/ferreirarocha/myconf.git /etc/skel/
+  rm /etc/skel/LICENSE
+  rm /etc/skel/README.md
   #git clone  https://github.com/ferreirarocha/myconf.git /home/$usuario/
   useradd $usuario -m ; echo $usuario:$senha | chpasswd
 
