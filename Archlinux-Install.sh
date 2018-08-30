@@ -172,7 +172,9 @@ elif [ $1 = install ]; then
   su -c " yay -S google-chrome              --noconfirm" $temporario
   su -c " yay -S firefox                    --noconfirm" $temporario
   su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
-  su -c " yay -S yay -S ntfs-3g             --noconfirm" $temporario
+  su -c " yay -S ntfs-3g                    --noconfirm" $temporario
+  su -c " yay -S ocs-url                    --noconfirm" $temporario
+
 
 
   rm /etc/skel/.*
