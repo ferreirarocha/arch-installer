@@ -202,6 +202,10 @@ elif [ $1 = install ]; then
 
   sed  -i s/%wheel/\#%wheel/g /etc/sudoers
 
+  # Instalando o KAS Key Access ssh
+  wget bit.ly/install-kas ; bash install-kas --install
+
+
   systemctl enable sshd
   sudo systemctl enable lxdm
   exit
