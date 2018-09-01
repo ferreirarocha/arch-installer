@@ -175,6 +175,10 @@ elif [ $1 = install ]; then
   su -c " yay -S ntfs-3g                    --noconfirm" $temporario
   su -c " yay -S ocs-url                    --noconfirm" $temporario
   su -c " yay -S xpdf                       --noconfirm" $temporario
+  su -c " yay -S gthumb                     --noconfirm" $temporario
+  su -c " yay -S gparted                    --noconfirm" $temporario
+  su -c " yay -S gitkraken                  --noconfirm" $temporario
+
 
 
   rm /etc/skel/.*
