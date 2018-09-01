@@ -178,7 +178,16 @@ elif [ $1 = install ]; then
   su -c " yay -S gthumb                     --noconfirm" $temporario
   su -c " yay -S gparted                    --noconfirm" $temporario
   su -c " yay -S gitkraken                  --noconfirm" $temporario
+  su -c " yay -S sigil                      --noconfirm" $temporario
 
+  su -c " yay -S kdenlive \
+                 frei0r-plugins \
+                 oxygen-icons \
+                 breeze \
+                 breeze-gtk \
+                 dvdauthor \
+                 kde-gtk-config
+                 --noconfirm" $temporario
 
 
   rm /etc/skel/.*
