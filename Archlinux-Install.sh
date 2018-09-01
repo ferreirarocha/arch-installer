@@ -197,6 +197,13 @@ elif [ $1 = install ]; then
   virtualbox-sdk \
   virtualbox  --noconfirm
 
+  pacman -R xfce4-terminal
+  pacman -R ristretto
+  pacman -R thunar-archive-plugin
+  pacman -R thunar-volman
+  pacman -R thunar-media-tags-plugin
+  pacman -R thunar
+
   sudo sed -i /etc/lxdm/lxdm.conf \
        -e 's;^# session=/usr/bin/startlxde;session=/usr/bin/startxfce4;g'
 
