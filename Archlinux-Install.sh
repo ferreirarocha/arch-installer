@@ -174,7 +174,7 @@ elif [ $1 = install ]; then
   su -c " yay -S xfce4-dockbarx-plugin-git  --noconfirm" $temporario
   su -c " yay -S ntfs-3g                    --noconfirm" $temporario
   su -c " yay -S ocs-url                    --noconfirm" $temporario
-
+  su -c " yay -S xpdf                       --noconfirm" $temporario
 
 
   rm /etc/skel/.*
