@@ -209,7 +209,7 @@ podemos reiniciá-lo caso necessário.
 Parte 3 - Pós instalação - Instalando o XFCE
 ============================================
 
-.. figure:: /home/marcos/docs/Documentos/xfce4-1.png
+.. figure:: https://4.bp.blogspot.com/-bDQSnbZGh2A/W40toduDb-I/AAAAAAAACRU/04k_TDitGwYMt1doj31XFM_h9-03USbrwCLcBGAs/s640/xfce4-1.png
    :alt: 
 
 .. _header-n91:
@@ -221,7 +221,10 @@ Parte 3 - Pós instalação - Instalando o XFCE
 
    pacman -Syu	xorg xorg-server xorg-xinit
 
-### **Instalando o XFCE4**
+.. _header-n94:
+
+**Instalando o XFCE4**
+----------------------
 
 Optamos por instalar o XFCE caso queira utilizar outro ambiente fique a
 vontade.
@@ -268,13 +271,10 @@ Parte 5 - Pós instalação - Reiniciando e logando no sistema
 
    reboot
 
-.. figure:: /home/marcos/docs/assets/lxdm-login.png
+.. figure:: https://3.bp.blogspot.com/-ebfrQSz8ic0/W40tqg5CBfI/AAAAAAAACRY/pFP08GWYerMxa_QMi_7M4uEW_Nju_midwCLcBGAs/s640/xfce-login-lxde.png
    :alt: 
 
-.. _header-n112:
-
-Parte 4 - Pós instalação - Configurando o Pacman
-================================================
+# Parte 4 - Pós instalação - Configurando o Pacman
 
 .. _header-n114:
 
