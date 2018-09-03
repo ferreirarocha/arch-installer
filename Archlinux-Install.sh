@@ -180,6 +180,8 @@ elif [ $1 = install ]; then
   su -c " yay -S gitkraken                  --noconfirm" $temporario
   su -c " yay -S sigil                      --noconfirm" $temporario
   su -c " yay -S gst-libav                  --noconfirm" $temporario
+  su -c " yay -S furiusisomount             --noconfirm" $temporario
+
 
   su -c " yay -S kdenlive \
                  frei0r-plugins \
