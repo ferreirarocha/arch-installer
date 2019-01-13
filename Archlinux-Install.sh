@@ -10,7 +10,7 @@ home=/dev/sda2
 function wifi(){
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
   Description='Internet via Wifi do Edivan'
-  Interface=wlp3s1
+  Interface=en3ss
   Connection=wireless
   Security=wpa
   ESSID=Edivan2
@@ -23,7 +23,7 @@ EOF
 function rede-cabeada(){
 cat << EOF > /etc/netctl/ens3
   Description='Rede Cabeada do laboratorio'
-  Interface=ens3
+  Interface=ens33
   Connection=ethernet
   IP=dhcp
 EOF
