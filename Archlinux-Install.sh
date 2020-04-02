@@ -4,8 +4,8 @@ usuario=marcos
 senha=12345
 host=kleper1
 temporario=temporario
-sistema=/dev/sda1
-home=/dev/sda2
+sistema=/dev/vda1
+home=/dev/vda2
 
 function wifi(){
 cat << EOF > /etc/netctl/wlp3s1-Edivan2
@@ -32,7 +32,7 @@ EOF
 
 if [ $1 = -i ];then
 
-  cfdisk /dev/sda
+  cfdisk /dev/vda
 
   mkfs.ext4 $sistema
   mkfs.ext4 $home
@@ -44,9 +44,9 @@ if [ $1 = -i ];then
   pacstrap /mnt base base-devel
 
   genfstab -U /mnt >> /mnt/etc/fstab
-  wget -c -P /mnt http://bit.ly/arch-installer
+  wget -c -P /mnt https://raw.githubusercontent.com/ferreirarocha/arch-installer/master/Archlinux-Install.sh
 
-  arch-chroot /mnt bash arch-installer  install
+  arch-chroot /mnt bash Archlinux-Install.sh  install
 
 elif [ $1 = install ]; then
 
@@ -74,7 +74,7 @@ elif [ $1 = install ]; then
 
   pacman -S grub os-prober --noconfirm
 
-  grub-install /dev/sda
+  grub-install /dev/vda
 
   grub-mkconfig -o /boot/grub/grub.cfg
 
